@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>
+Link Sharing
+</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function()
+{
+
+	$.ajax({type: "post", 
+			url:"/display",
+			data: {newLink:0},
+			
+			success: function(rows)
+			{
+				var content = "";
+				for(var i=0; i<rows.length; i++)
+				{
+					content += '<div id="name" style="background-color:#777;border:2px;color:#000;width:300px;margin:2px;">' +rows[i]["username"] + '<span style="float:right">' + rows[i]["time"] + '</span></div>' + rows[i]["descrip"] +'<br><br><hr>';
+				}
+				$('#linkBox').html(content);
+			}
+  		});
+
+	$("#submit2").on('click',function()					//only click functionality
+		{
+
+			var newLink1 = $("#newLink").val();
+			$.ajax({
+  				type: "POST",
+  				url: "/display",
+  				data: {newLink:newLink1}
+				})
+  			.done(function(rows) 
+  			{
+    			var content = "";
+			for(var i=0; i<rows.length; i++)
+			{
+				content += '<div id="name" style="background-color:#777;border:2px;color:#000;width:300px;margin:2px;">' +
+				rows[i]["username"] + '<span style="float:right">' + rows[i]["time"] + '</span></div>' + rows[i]["descrip"] +'<br><br><hr>';
+			}
+		$('#linkBox').html(content);
+  			});
+  			$("#newLink").val("");	
+		});
+		$("#newLink").bind("enterKey",function(e)			//Enter functionality added
+  		{
+			var newLink1 = $("#newLink").val();
+			$.ajax({
+  				type: "POST",
+  				url: "/display",
+  				data: {newLink:newLink1}
+				})
+  			.done(function(rows) 
+  			{
+    			var content = "";
+			for(var i=0; i<rows.length; i++)
+			{
+				content += '<div id="name" style="background-color:#777;border:2px;color:#000;width:300px;margin:2px;">' +
+				rows[i]["username"] + '<span style="float:right">' + rows[i]["time"] + '</span></div>' + rows[i]["descrip"] +'<br><br><hr>';
+			}
+		$('#linkBox').html(content);
+  			});
+  			$("#newLink").val("");						//Making value of textbox null
+		});
+
+	$("#newLink").keyup(function(e){
+	if(e.keyCode == 13)
+	{
+	  $(this).trigger("enterKey");
+	}
+	});
+
+	function show(rows)
+	{
+			var content = "";
+			for(var i=0; i<rows.length; i++)
+			{
+				content += '<div id="name" style="background-color:#777;border:2px;color:#000;width:300px;margin:2px;">' +
+				rows[i]["username"] + '<span style="float:right">' + rows[i]["time"] + '</span></div>' + rows[i]["descrip"] +'<br><br><hr>';
+			}
+		$('#linkBox').html(content);
+	}
+	
+});
+</script>
+</head>
+<body>
+	Welcome, {{username}}! Feel free to post comments!
+	<span style="float:right"><a href="/logout">Logout</a></span><br />
+	Post your links:
+    <input type="text" id="newLink" style="height:100px; width:300px;">
+    <input type="submit" value="Submit" id="submit2">
+<div id="linkBox" style="background-color:#dddddd;border:2px;color:red;width:305px;margin:2px;">
+
+</div>
+</body>
+</html>

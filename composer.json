@@ -1,0 +1,16 @@
+{
+	"name" : "comments",
+	"description" : "Commenting based on MVC",
+	"require": {
+		"torophp/torophp": "dev-master",
+		"twig/twig": "1.*"
+	},
+	"require-dev": {
+	},
+	"autoload":{
+		"psr-4": {
+			"Controllers\\": "apps/controllers" ,
+			"Models\\": "apps/models"
+		}
+	}
+}

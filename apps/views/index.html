@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>
+Link Sharing
+</title>
+</head>
+<body>
+{% if try==1 %}
+Try logging in again
+<br>
+{% endif %}
+	<a href="/login">Login</a> or <a href="/register">Register</a> to post comments.<br />
+<div id="linkBox" style="background-color:#dddddd;border:2px;color:red;width:300px;margin:2px;">
+{% for link in links %}
+<div id="name" style="background-color:#777;border:2px;color:#000;width:300px;margin:2px;">
+{{link['time']}}
+<span style="float:right">{{link['time']}}</span>
+</div>
+
+{{link['descrip']}}
+
+<br>
+<br>
+
+<hr>
+{% endfor %}
+</div>
+</body>
+</html>
