@@ -13,7 +13,7 @@ class Register
 
 	public static function getDb()
 	{
-		include 'config.php';
+		include '../../config/config.php';
 		$dsn = 'mysql:dbname='.$config["database"].";host=".$config["host"];
 		$user = $config["user"];
 		$password = $config["password"];
