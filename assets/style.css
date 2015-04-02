@@ -1,0 +1,24 @@
+.linkBox{
+	background-color:#dddddd;
+	border:2px;
+	color:red;
+	width:300px;
+	margin:2px;
+}
+
+.name{
+	background-color:#777;
+	border:2px;
+	color:#000;
+	width:300px;
+	margin:2px;
+}
+
+.right{
+	float:right;
+}
+
+.newLink{
+	height:100px; 
+	width:300px;
+}

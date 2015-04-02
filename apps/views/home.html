@@ -3,6 +3,7 @@
 <title>
 Link Sharing
 </title>
+<link rel="stylesheet" type="text/css" href="../assets/style.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 $(document).ready(function()
@@ -62,8 +63,8 @@ $(document).ready(function()
 			var content = "";
 			for(var i=0; i<rows.length; i++)
 			{
-				content += '<div id="name" style="background-color:#777;border:2px;color:#000;width:300px;margin:2px;">' +
-				rows[i]["username"] + '<span style="float:right">' + rows[i]["time"] + '</span></div>' + rows[i]["descrip"] +'<br><br><hr>';
+				content += '<div class="name">' +
+				rows[i]["username"] + '<span class="right">' + rows[i]["time"] + '</span></div>' + rows[i]["descrip"] +'<br><br><hr>';
 			}
 		$('#linkBox').html(content);
 	}
@@ -73,11 +74,11 @@ $(document).ready(function()
 </head>
 <body>
 	Welcome, {{username}}! Feel free to post comments!
-	<span style="float:right"><a href="/logout">Logout</a></span><br />
+	<span class="right"><a href="/logout">Logout</a></span><br />
 	Post your links:
-    <input type="text" id="newLink" style="height:100px; width:300px;">
+    <input type="text" class="newLink">
     <input type="submit" value="Submit" id="submit2">
-<div id="linkBox" style="background-color:#dddddd;border:2px;color:red;width:305px;margin:2px;">
+<div class="linkBox">
 
 </div>
 </body>
