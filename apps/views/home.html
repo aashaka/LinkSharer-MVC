@@ -3,13 +3,13 @@
 <title>
 Link Sharing
 </title>
-<link rel="stylesheet" type="text/css" href="../assets/style.css">
+<link rel="stylesheet" type="text/css" href="../public/assets/style.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 $(document).ready(function()
 {
 
-	$.ajax({type: "post", 
+	$.ajax({type: "GET", 
 			url:"/display",
 			data: {newLink:0},
 			
